@@ -1976,6 +1976,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myAudio: {fileID: 837087827}
+  delay: 3
 --- !u!4 &837087829
 Transform:
   m_ObjectHideFlags: 0
