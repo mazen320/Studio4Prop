@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MusicControl : MonoBehaviour
 {
+    public bool muted;
     public static MusicControl instance; // Creates a static varible for a MusicControlScript instance
 
     private void Awake() // Runs before void Start()
@@ -17,6 +18,16 @@ public class MusicControl : MonoBehaviour
         else // If there is already a MusicControlScript instance active
         {
             Destroy(gameObject); // Destroy this gameObject
+        }
+
+        if (muted)
+        {
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            gameObject.SetActive(true);
+
         }
     }
 }
