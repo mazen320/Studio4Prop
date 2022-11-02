@@ -24,7 +24,7 @@ public class MusicControl : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
-        else
+        else if (!muted)
         {
             gameObject.SetActive(true);
 
