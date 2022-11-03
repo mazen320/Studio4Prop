@@ -27,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
         // moveInput.x = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
         // moveInput.z = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
 
+        float yStore = moveInput.y;
+
         Vector3 verticalMove = transform.forward * Input.GetAxis("Vertical");
         Vector3 horizontalMove = transform.right * Input.GetAxis("Horizontal");
 
@@ -34,7 +36,15 @@ public class PlayerMovement : MonoBehaviour
         moveInput.Normalize();
         moveInput = moveInput * moveSpeed;
 
-        moveInput.y += Physics.gravity.y * gravityStrength;
+        moveInput.y = yStore;
+
+        moveInput.y += Physics.gravity.y * gravityStrength * Time.deltaTime;
+
+        if(charController.isGrounded)
+        {
+            moveInput.y = Physics.gravity.y * gravityStrength * Time.deltaTime;
+        }
+
 
         charController.Move(moveInput * Time.deltaTime);
 
