@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] float moveSpeed = 10f;
+    [SerializeField] float moveSpeed, gravityStrength;
     public CharacterController charController;
 
     private Vector3 moveInput;
@@ -18,16 +18,25 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        moveInput.x = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
-        moveInput.z = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
+        // moveInput.x = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
+        // moveInput.z = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
 
-        charController.Move(moveInput);
+        Vector3 verticalMove = transform.forward * Input.GetAxis("Vertical");
+        Vector3 horizontalMove = transform.right * Input.GetAxis("Horizontal");
+
+        moveInput = horizontalMove + verticalMove;
+        moveInput.Normalize();
+        moveInput = moveInput * moveSpeed;
+
+        moveInput.y += Physics.gravity.y * gravityStrength;
+
+        charController.Move(moveInput * Time.deltaTime);
 
         Vector2 mouseInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 
