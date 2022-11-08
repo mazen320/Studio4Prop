@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] float moveSpeed, gravityStrength;
+    [SerializeField] float moveSpeed, gravityStrength, jumpForce;
     public CharacterController charController;
 
     private Vector3 moveInput;
@@ -15,6 +15,10 @@ public class PlayerMovement : MonoBehaviour
     public bool invertX;
     public bool invertY;
 
+    private bool canJump;
+    public Transform groundCheckPoint;
+    public LayerMask whatsGround;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,9 +28,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // moveInput.x = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
-        // moveInput.z = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
-
         float yStore = moveInput.y;
 
         Vector3 verticalMove = transform.forward * Input.GetAxis("Vertical");
@@ -43,6 +44,14 @@ public class PlayerMovement : MonoBehaviour
         if(charController.isGrounded)
         {
             moveInput.y = Physics.gravity.y * gravityStrength * Time.deltaTime;
+        }
+
+        canJump = Physics.OverlapSphere(groundCheckPoint.position, .25f, whatsGround).Length > 0;
+
+        //Jumping
+        if(Input.GetKeyDown(KeyCode.Space) && canJump)
+        {
+            moveInput.y = jumpForce;
         }
 
 
