@@ -1367,7 +1367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 9
-  gravityStrength: 1
+  gravityStrength: 2
   jumpForce: 10
   runSpeed: 12
   charController: {fileID: 2115360893}
