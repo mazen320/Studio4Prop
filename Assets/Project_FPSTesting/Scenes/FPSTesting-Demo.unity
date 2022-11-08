@@ -1162,6 +1162,7 @@ GameObject:
   - component: {fileID: 2115360894}
   - component: {fileID: 2115360893}
   - component: {fileID: 2115360895}
+  - component: {fileID: 2115360896}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1217,9 +1218,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1de171e730145f4ba89a664d495922a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 9
   gravityStrength: 1
   jumpForce: 10
+  runSpeed: 12
   charController: {fileID: 2115360893}
   camTransform: {fileID: 855573320}
   mouseSens: 0
@@ -1229,3 +1231,24 @@ MonoBehaviour:
   whatsGround:
     serializedVersion: 2
     m_Bits: 128
+  anim: {fileID: 2115360896}
+--- !u!95 &2115360896
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115360891}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 18ac006a83225a44c830ffc03f2ec86d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
