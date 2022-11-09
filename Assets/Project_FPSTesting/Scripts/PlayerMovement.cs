@@ -24,13 +24,6 @@ public class PlayerMovement : MonoBehaviour
     public GameObject bullet;
     public Transform firePoint;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
         float yStore = moveInput.y;
@@ -87,6 +80,19 @@ public class PlayerMovement : MonoBehaviour
         //handle shooting
         if(Input.GetMouseButtonDown(0))
         {
+            RaycastHit hit;
+
+            if(Physics.Raycast(camTransform.position, camTransform.forward, out hit, 60f))
+            {
+                if (Vector3.Distance(camTransform.position, hit.point) > 2f)
+                {
+                    firePoint.LookAt(hit.point);
+                }
+            }
+            else
+            {
+                firePoint.LookAt(camTransform.position + camTransform.forward * 30f); 
+            }
             Instantiate(bullet, firePoint.position, firePoint.rotation);
         }
 
