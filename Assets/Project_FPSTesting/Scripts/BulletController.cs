@@ -5,14 +5,14 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
 
-    public float moveSpeed, lifeTime;
+    public float bulletSpeed, lifeTime;
     public Rigidbody bulletRB;
 
     public GameObject impactEffect;
 
     void Update()
     {
-        bulletRB.velocity = transform.forward * moveSpeed;
+        bulletRB.velocity = transform.forward * bulletSpeed;
 
         lifeTime -= Time.deltaTime;
 
@@ -30,6 +30,6 @@ public class BulletController : MonoBehaviour
         }
 
         Destroy(gameObject);
-        Instantiate(impactEffect, transform.position + (transform.forward * (-moveSpeed * Time.deltaTime)), transform.rotation);
+        Instantiate(impactEffect, transform.position + (transform.forward * (-bulletSpeed * Time.deltaTime)), transform.rotation);
     }
 }
