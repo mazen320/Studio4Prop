@@ -10,6 +10,8 @@ public class BulletController : MonoBehaviour
 
     public GameObject impactEffect;
 
+    public int damage = 1;
+
     void Update()
     {
         bulletRB.velocity = transform.forward * bulletSpeed;
@@ -26,7 +28,7 @@ public class BulletController : MonoBehaviour
     {
         if(other.gameObject.tag == "Enemy")
         {
-            Destroy(other.gameObject);
+            other.gameObject.GetComponent<EnemyHealthController>().DamageEnemy(damage);
         }
 
         Destroy(gameObject);

@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
+    public static PlayerController instance;
+
     [SerializeField] float moveSpeed, gravityStrength, jumpForce, runSpeed;
     public CharacterController charController;
 
@@ -23,6 +25,11 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject bullet;
     public Transform firePoint;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     void Update()
     {
