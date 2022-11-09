@@ -10,13 +10,6 @@ public class BulletController : MonoBehaviour
 
     public GameObject impactEffect;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         bulletRB.velocity = transform.forward * moveSpeed;
