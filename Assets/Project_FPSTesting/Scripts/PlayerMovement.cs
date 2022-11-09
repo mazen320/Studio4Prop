@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] float moveSpeed, gravityStrength;
+    [SerializeField] float moveSpeed, gravityStrength, jumpForce, runSpeed;
     public CharacterController charController;
 
     private Vector3 moveInput;
@@ -15,6 +15,15 @@ public class PlayerMovement : MonoBehaviour
     public bool invertX;
     public bool invertY;
 
+    private bool canJump;
+    public Transform groundCheckPoint;
+    public LayerMask whatsGround;
+
+    public Animator anim;
+
+    public GameObject bullet;
+    public Transform firePoint;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,9 +33,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // moveInput.x = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
-        // moveInput.z = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
-
         float yStore = moveInput.y;
 
         Vector3 verticalMove = transform.forward * Input.GetAxis("Vertical");
@@ -34,10 +40,17 @@ public class PlayerMovement : MonoBehaviour
 
         moveInput = horizontalMove + verticalMove;
         moveInput.Normalize();
-        moveInput = moveInput * moveSpeed;
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            moveInput = moveInput * runSpeed;
+        }
+        else
+        {
+            moveInput = moveInput * moveSpeed;
+        }
 
         moveInput.y = yStore;
-
         moveInput.y += Physics.gravity.y * gravityStrength * Time.deltaTime;
 
         if(charController.isGrounded)
@@ -45,10 +58,18 @@ public class PlayerMovement : MonoBehaviour
             moveInput.y = Physics.gravity.y * gravityStrength * Time.deltaTime;
         }
 
+        canJump = Physics.OverlapSphere(groundCheckPoint.position, .25f, whatsGround).Length > 0;
+
+        //Jumping
+        if(Input.GetKeyDown(KeyCode.Space) && canJump)
+        {
+            moveInput.y = jumpForce;
+        }
+
 
         charController.Move(moveInput * Time.deltaTime);
 
-        Vector2 mouseInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+        Vector2 mouseInput = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
 
         if (invertX)
         {
@@ -61,6 +82,15 @@ public class PlayerMovement : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y + mouseInput.x, transform.rotation.eulerAngles.z);
 
-        camTransform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(-mouseInput.y, 0f, 0f));
+        camTransform.rotation = Quaternion.Euler(camTransform.rotation.eulerAngles + new Vector3(-mouseInput.y, 0f, 0f));
+
+        //handle shooting
+        if(Input.GetMouseButtonDown(0))
+        {
+            Instantiate(bullet, firePoint.position, firePoint.rotation);
+        }
+
+        anim.SetFloat("moveSpeed", moveInput.magnitude);
+        anim.SetBool("onGround", canJump);
     }
 }
