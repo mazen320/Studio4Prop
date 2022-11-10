@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
     public GameObject bullet;
     public Transform firePoint;
 
+    public float maxViewAngle = 60f;
+
     private void Awake()
     {
         instance = this;
@@ -84,6 +86,15 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y + mouseInput.x, transform.rotation.eulerAngles.z);
 
         camTransform.rotation = Quaternion.Euler(camTransform.rotation.eulerAngles + new Vector3(-mouseInput.y, 0f, 0f));
+
+        if(camTransform.rotation.eulerAngles.x > maxViewAngle && camTransform.rotation.eulerAngles.x < 100f)
+        {
+            camTransform.rotation = Quaternion.Euler(maxViewAngle, camTransform.rotation.eulerAngles.y, camTransform.rotation.eulerAngles.z);
+        }
+        else if(camTransform.rotation.eulerAngles.x > 180f && camTransform.rotation.eulerAngles.x < 360f - maxViewAngle)
+        {
+            camTransform.rotation = Quaternion.Euler(-maxViewAngle, camTransform.rotation.eulerAngles.y, camTransform.rotation.eulerAngles.z);
+        }
 
         //handle shooting
         if(Input.GetMouseButtonDown(0))
