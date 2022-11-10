@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
@@ -9,9 +10,19 @@ public class EnemyController : MonoBehaviour
     public Rigidbody rb;
 
     private bool chasing;
-    public float disToChase = 10f, disToLose = 15f;
+    public float disToChase = 10f, disToLose = 15f, disToStop = 2f;
 
-    private Vector3 targetPoint;
+    private Vector3 targetPoint, startPoint;
+
+    public NavMeshAgent agent;
+
+    public float keepChasingTime;
+    float chaseCounter;
+
+    void Start()
+    {
+        startPoint = transform.position;
+    }
 
     void Update()
     {
@@ -24,16 +35,37 @@ public class EnemyController : MonoBehaviour
             {
                 chasing = true;
             }
+
+            if (chaseCounter > 0)
+            {
+                chaseCounter -= Time.deltaTime;
+            }
+
+            if (chaseCounter <= 0)
+            {
+                agent.destination = startPoint;
+            }
         }
         else
         {
-            transform.LookAt(targetPoint);
+            // transform.LookAt(targetPoint);
 
-            rb.velocity = transform.forward * moveSpeed;
+            // rb.velocity = transform.forward * moveSpeed;
 
-            if(Vector3.Distance(transform.position, targetPoint) > disToLose)
+            if (Vector3.Distance(transform.position, targetPoint) > disToStop)
             {
-                chasing=false;
+                agent.destination = targetPoint;
+            }
+            else
+            {
+                agent.destination = transform.position;
+            }
+
+            if (Vector3.Distance(transform.position, targetPoint) > disToLose)
+            {
+                chasing = false;
+
+                chaseCounter = keepChasingTime;
             }
         }
     }
