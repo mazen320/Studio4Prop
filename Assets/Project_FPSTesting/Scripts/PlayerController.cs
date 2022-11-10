@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public CharacterController charController;
 
     private Vector3 moveInput;
+    public AudioSource source;
+    public AudioClip clip;
 
     public Transform camTransform;
 
@@ -88,6 +90,7 @@ public class PlayerController : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
+            source.PlayOneShot(clip);
 
             if(Physics.Raycast(camTransform.position, camTransform.forward, out hit, 60f))
             {
