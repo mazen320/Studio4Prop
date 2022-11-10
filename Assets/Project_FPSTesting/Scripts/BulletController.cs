@@ -5,14 +5,16 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
 
-    public float moveSpeed, lifeTime;
+    public float bulletSpeed, lifeTime;
     public Rigidbody bulletRB;
 
     public GameObject impactEffect;
 
+    public int damage = 1;
+
     void Update()
     {
-        bulletRB.velocity = transform.forward * moveSpeed;
+        bulletRB.velocity = transform.forward * bulletSpeed;
 
         lifeTime -= Time.deltaTime;
 
@@ -26,10 +28,10 @@ public class BulletController : MonoBehaviour
     {
         if(other.gameObject.tag == "Enemy")
         {
-            Destroy(other.gameObject);
+            other.gameObject.GetComponent<EnemyHealthController>().DamageEnemy(damage);
         }
 
         Destroy(gameObject);
-        Instantiate(impactEffect, transform.position + (transform.forward * (-moveSpeed * Time.deltaTime)), transform.rotation);
+        Instantiate(impactEffect, transform.position + (transform.forward * (-bulletSpeed * Time.deltaTime)), transform.rotation);
     }
 }
