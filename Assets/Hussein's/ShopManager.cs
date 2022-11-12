@@ -6,18 +6,20 @@ using TMPro;
 
 public class ShopManager : MonoBehaviour
 {
-    public int coins;
-    public TMP_Text coinUI;
+    [SerializeField] private int _coins;
+    [SerializeField] private TMP_Text _coinUI;
     //public ShopItemSO[] shopItemsSO;
     //public GameObject[] shopPanelsGO;
     public ShopTemplate[] shopPanels;
     //public Button[] myPurchaseBtns;
+    public static int Coins { get; private set; } = 0;
+
 
     private void Start()
     {
         //for (int i = 0; i < shopItemsSO.Length; i++)
         //    shopPanelsGO[i].gameObject.SetActive(true);
-        coinUI.text = "Coins: " + coins.ToString();
+        _coinUI.text = "Coins: " + _coins.ToString();
         ////LoadPanels();
         ////CheckPurchasable();
     }
@@ -27,10 +29,11 @@ public class ShopManager : MonoBehaviour
         
     }
 
-    public void AddCoins(int _noOfCoins)
+    public void AddCoins(int coins)
     {
-        coins = coins + _noOfCoins;
-        coinUI.text = "Coins: " + coins.ToString();
+        Coins += coins;
+        _coins = Coins;
+        _coinUI.text = $"Coins: {Coins}";
         //CheckPurchasable();
     }
 
