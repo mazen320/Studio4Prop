@@ -666,6 +666,7 @@ MonoBehaviour:
   canAutoFire: 0
   fireRate: 0.1
   fireCounter: 0
+  currentAmmo: 10
 --- !u!1 &281703944
 GameObject:
   m_ObjectHideFlags: 0

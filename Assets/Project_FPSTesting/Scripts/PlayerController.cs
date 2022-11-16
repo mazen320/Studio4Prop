@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
         moveInput.y = yStore;
         moveInput.y += Physics.gravity.y * gravityStrength * Time.deltaTime;
 
-        if(charController.isGrounded)
+        if (charController.isGrounded)
         {
             moveInput.y = Physics.gravity.y * gravityStrength * Time.deltaTime;
         }
@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
         canJump = Physics.OverlapSphere(groundCheckPoint.position, 0.25f, whatsGround).Length > 0;
 
         //Jumping
-        if(Input.GetKeyDown(KeyCode.Space) && canJump)
+        if (Input.GetKeyDown(KeyCode.Space) && canJump)
         {
             moveInput.y = jumpForce;
         }
@@ -93,12 +93,12 @@ public class PlayerController : MonoBehaviour
         /*
          * Single shots
          */
-        if(Input.GetMouseButtonDown(0) && activeGun.fireCounter <= 0)
+        if (Input.GetMouseButtonDown(0) && activeGun.fireCounter <= 0)
         {
             RaycastHit hit;
             source.PlayOneShot(clip);
 
-            if(Physics.Raycast(camTransform.position, camTransform.forward, out hit, 60f))
+            if (Physics.Raycast(camTransform.position, camTransform.forward, out hit, 60f))
             {
                 if (Vector3.Distance(camTransform.position, hit.point) > 2f)
                 {
@@ -107,7 +107,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                firePoint.LookAt(camTransform.position + (camTransform.forward * 30f)); 
+                firePoint.LookAt(camTransform.position + (camTransform.forward * 30f));
             }
             // Instantiate(bullet, firePoint.position, firePoint.rotation);
             FireBullet();
@@ -116,7 +116,7 @@ public class PlayerController : MonoBehaviour
         /*
          * Repeating Shots
          */
-        if(Input.GetMouseButton(0) &&activeGun.canAutoFire)
+        if (Input.GetMouseButton(0) && activeGun.canAutoFire)
         {
             if (activeGun.fireCounter <= 0)
                 FireBullet();
@@ -128,9 +128,15 @@ public class PlayerController : MonoBehaviour
 
     public void FireBullet()
     {
-        Instantiate(activeGun.bullet, firePoint.position, firePoint.rotation);
+        if (activeGun.currentAmmo > 0)
+        {
+            activeGun.currentAmmo--;
 
-        activeGun.fireCounter = activeGun.fireRate;
+
+            Instantiate(activeGun.bullet, firePoint.position, firePoint.rotation);
+
+            activeGun.fireCounter = activeGun.fireRate;
+        }
     }
 
 }
