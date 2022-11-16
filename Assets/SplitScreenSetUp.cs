@@ -8,6 +8,7 @@ public class SplitScreenSetUp : MonoBehaviour
     public GameObject prop;
     public GameObject hunter;
     public GameObject cheatingScreen;
+    
     void Start()
     {
     }
@@ -15,9 +16,9 @@ public class SplitScreenSetUp : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Backspace)) 
         {
-           prop.GetComponent<Movement>().enabled = false;
+        prop.GetComponent<Movement>().enabled = false;
         hunter.GetComponent<PlayerController>().enabled = true;
-            cheatingScreen.SetActive(true);
+        cheatingScreen.SetActive(true);
         }
       
 

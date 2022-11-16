@@ -9,6 +9,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenu;
     // public GameObject HUD;
     // public GameObject Cam;
+    public GameObject SplitScreen;
 
     public bool isPaused;
     void Start()
@@ -25,6 +26,7 @@ public class PauseMenu : MonoBehaviour
             {
                 PauseGame();
                 Cursor.lockState = CursorLockMode.Confined;
+                SplitScreen.SetActive(false);
                 //HUD.SetActive(false);
                 //Cam.GetComponent<CameraController>().enabled = false;
             }
@@ -32,6 +34,7 @@ public class PauseMenu : MonoBehaviour
             {
                 ResumeGame();
                 Cursor.lockState = CursorLockMode.Locked;
+                SplitScreen.SetActive(true);
 
 
 
