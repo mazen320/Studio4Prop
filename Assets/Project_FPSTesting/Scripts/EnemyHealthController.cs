@@ -25,7 +25,7 @@ public class EnemyHealthController : MonoBehaviour
         if(currentHealth <= 0)
         {
             Destroy(gameObject);
-            SceneManager.LoadScene(2);
+            //SceneManager.LoadScene(2);
             Cursor.lockState = CursorLockMode.None;
         }
     }
