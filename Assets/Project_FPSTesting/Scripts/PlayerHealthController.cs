@@ -39,6 +39,10 @@ public class PlayerHealthController : MonoBehaviour
             if (currentHealth <= 0)
             {
                 gameObject.SetActive(false);
+
+                currentHealth = 0;
+
+                GameManager.instance.PlayerDied();
             }
 
             graceCounter = graceLength;
