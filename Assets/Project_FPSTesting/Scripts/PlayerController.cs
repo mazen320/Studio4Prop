@@ -90,7 +90,10 @@ public class PlayerController : MonoBehaviour
         camTransform.rotation = Quaternion.Euler(camTransform.rotation.eulerAngles + new Vector3(-mouseInput.y, 0f, 0f));
 
         //handle shooting
-        if(Input.GetMouseButtonDown(0))
+        /*
+         * Single shots
+         */
+        if(Input.GetMouseButtonDown(0) && activeGun.fireCounter <= 0)
         {
             RaycastHit hit;
             source.PlayOneShot(clip);
@@ -110,6 +113,15 @@ public class PlayerController : MonoBehaviour
             FireBullet();
         }
 
+        /*
+         * Repeating Shots
+         */
+        if(Input.GetMouseButton(0) &&activeGun.canAutoFire)
+        {
+            if (activeGun.fireCounter <= 0)
+                FireBullet();
+        }
+
         anim.SetFloat("moveSpeed", moveInput.magnitude);
         anim.SetBool("onGround", canJump);
     }
@@ -117,6 +129,8 @@ public class PlayerController : MonoBehaviour
     public void FireBullet()
     {
         Instantiate(activeGun.bullet, firePoint.position, firePoint.rotation);
+
+        activeGun.fireCounter = activeGun.fireRate;
     }
 
 }
