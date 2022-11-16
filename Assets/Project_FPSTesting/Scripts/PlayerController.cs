@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour
 
     public float maxViewAngle = 60f;
 
+    public Gun activeGun;
+
     private void Awake()
     {
         instance = this;
@@ -62,7 +64,7 @@ public class PlayerController : MonoBehaviour
             moveInput.y = Physics.gravity.y * gravityStrength * Time.deltaTime;
         }
 
-        canJump = Physics.OverlapSphere(groundCheckPoint.position, .25f, whatsGround).Length > 0;
+        canJump = Physics.OverlapSphere(groundCheckPoint.position, 0.25f, whatsGround).Length > 0;
 
         //Jumping
         if(Input.GetKeyDown(KeyCode.Space) && canJump)
@@ -72,7 +74,7 @@ public class PlayerController : MonoBehaviour
 
         charController.Move(moveInput * Time.deltaTime);
 
-        Vector2 mouseInput = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
+        Vector2 mouseInput = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y")) * mouseSens;
 
         if (invertX)
         {
@@ -86,15 +88,6 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y + mouseInput.x, transform.rotation.eulerAngles.z);
 
         camTransform.rotation = Quaternion.Euler(camTransform.rotation.eulerAngles + new Vector3(-mouseInput.y, 0f, 0f));
-
-        if(camTransform.rotation.eulerAngles.x > maxViewAngle && camTransform.rotation.eulerAngles.x < 100f)
-        {
-            camTransform.rotation = Quaternion.Euler(maxViewAngle, camTransform.rotation.eulerAngles.y, camTransform.rotation.eulerAngles.z);
-        }
-        else if(camTransform.rotation.eulerAngles.x > 180f && camTransform.rotation.eulerAngles.x < 360f - maxViewAngle)
-        {
-            camTransform.rotation = Quaternion.Euler(-maxViewAngle, camTransform.rotation.eulerAngles.y, camTransform.rotation.eulerAngles.z);
-        }
 
         //handle shooting
         if(Input.GetMouseButtonDown(0))
@@ -111,12 +104,19 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                firePoint.LookAt(camTransform.position + camTransform.forward * 30f); 
+                firePoint.LookAt(camTransform.position + (camTransform.forward * 30f)); 
             }
-            Instantiate(bullet, firePoint.position, firePoint.rotation);
+            // Instantiate(bullet, firePoint.position, firePoint.rotation);
+            FireBullet();
         }
 
         anim.SetFloat("moveSpeed", moveInput.magnitude);
         anim.SetBool("onGround", canJump);
     }
+
+    public void FireBullet()
+    {
+        Instantiate(activeGun.bullet, firePoint.position, firePoint.rotation);
+    }
+
 }
