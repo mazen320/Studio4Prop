@@ -11,6 +11,9 @@ public class PauseMenu : MonoBehaviour
     // public GameObject Cam;
     public GameObject SplitScreen;
 
+    public GameObject prop;
+    public GameObject hunter;
+
     public bool isPaused;
     void Start()
     {
@@ -34,11 +37,6 @@ public class PauseMenu : MonoBehaviour
             {
                 ResumeGame();
                 Cursor.lockState = CursorLockMode.Locked;
-                SplitScreen.SetActive(true);
-
-
-
-
             }
         }
     }
@@ -53,6 +51,7 @@ public class PauseMenu : MonoBehaviour
     public void ResumeGame()
     {
         pauseMenu.SetActive(false);
+        SplitScreen.SetActive(true);
         Time.timeScale = 1f;
         isPaused = false;
         Cursor.lockState = CursorLockMode.Locked;

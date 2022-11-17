@@ -14,6 +14,7 @@ public class MophScript : MonoBehaviour
 
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         cam = Camera.main;
         renderer = GetComponent<MeshRenderer>();
         filter = GetComponent<MeshFilter>();
