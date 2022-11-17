@@ -46,8 +46,8 @@ public class PlayerHealthController : MonoBehaviour
             }
 
             graceCounter = graceLength;
-            UIController.instance.healthSlider.value = currentHealth;
-            UIController.instance.healthText.text = "Health: " + currentHealth + "/" + maxHealth;
+            //UIController.instance.healthSlider.value = currentHealth;
+            //UIController.instance.healthText.text = "Health: " + currentHealth + "/" + maxHealth;
         }
     }
 }

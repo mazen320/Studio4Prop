@@ -25,7 +25,7 @@ public class PauseMenu : MonoBehaviour
             if (!isPaused)
             {
                 PauseGame();
-                Cursor.lockState = CursorLockMode.Confined;
+                Cursor.lockState = CursorLockMode.None;
                 SplitScreen.SetActive(false);
                 //HUD.SetActive(false);
                 //Cam.GetComponent<CameraController>().enabled = false;
