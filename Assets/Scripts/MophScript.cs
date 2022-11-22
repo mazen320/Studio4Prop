@@ -10,6 +10,7 @@ public class MophScript : MonoBehaviour
     MeshRenderer renderer;
     MeshFilter filter;
     MeshCollider collider;
+    //Transform transformcomp;
 
 
     void Start()
@@ -40,6 +41,9 @@ public class MophScript : MonoBehaviour
                 //copy and replace the collider
                 MeshCollider hitCollider = hit.collider.gameObject.GetComponent<MeshCollider>();
                 collider.sharedMesh = hitCollider.sharedMesh;
+
+                //Transform trans = hit.transform.gameObject.GetComponent<Transform>();
+                //transform.localScale = trans.localScale;
             }
         }
     }
