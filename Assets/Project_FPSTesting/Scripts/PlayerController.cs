@@ -40,10 +40,8 @@ public class PlayerController : MonoBehaviour
     }
     private void Start()
     {
-        UIController.instance.ammoText.text = "AMMO: " + activeGun.currentAmmo;
-
-        activeGun = gunList[currentGun];
-        activeGun.gameObject.SetActive(true);
+        currentGun--;
+        SwitchGun();
     }
 
     void Update()
@@ -178,6 +176,7 @@ public class PlayerController : MonoBehaviour
         activeGun.gameObject.SetActive(true);
 
         UIController.instance.ammoText.text = "AMMO: " + activeGun.currentAmmo;
+        firePoint.position = activeGun.firePoint.position;
     }
 
 }
