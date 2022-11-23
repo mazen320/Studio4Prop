@@ -6,23 +6,35 @@ using TMPro;
 
 public class CountdownTimer : MonoBehaviour
 {
-    float currentTime;
-    public float startingTime = 10f;
+    public float currentTime = 90;
+    [SerializeField] TextMeshProUGUI timerText;
 
-    [SerializeField] TextMeshProUGUI countdownText;
-    void Start()
-    {
-        currentTime = startingTime;
-    }
+    //Update is called once per frame
     void Update()
     {
-        currentTime -= 1 * Time.deltaTime;
-        countdownText.text = currentTime.ToString("0.00");
-
-        if (currentTime <= 0)
+        if (currentTime > 0)
+        {
+            currentTime -= Time.deltaTime;
+        }
+        else
         {
             currentTime = 0;
-            
         }
+
+        TimeUI(currentTime);
+    }
+
+    void TimeUI(float displayingTime)
+    {
+        if (displayingTime < 0)
+        {
+            displayingTime = 0;
+        }
+
+        float minutes = Mathf.FloorToInt(displayingTime / 60);
+        float seconds = Mathf.FloorToInt(displayingTime % 60);
+
+        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+
     }
 }
