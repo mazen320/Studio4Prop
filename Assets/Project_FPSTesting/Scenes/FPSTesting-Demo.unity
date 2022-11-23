@@ -617,6 +617,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 1
+--- !u!1 &189996076
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 189996077}
+  m_Layer: 0
+  m_Name: ads point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &189996077
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189996076}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.3, z: 0.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 855573320}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &230220968
 GameObject:
   m_ObjectHideFlags: 0
@@ -1402,8 +1433,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 189996077}
   - {fileID: 1002086068}
-  - {fileID: 1350083040}
   m_Father: {fileID: 2115360894}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1596,8 +1627,9 @@ Transform:
   - {fileID: 230220969}
   - {fileID: 1394566729}
   - {fileID: 2083202935}
+  - {fileID: 1350083040}
   m_Father: {fileID: 855573320}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1012784077
 GameObject:
@@ -2320,13 +2352,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1350083039}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.387, y: -0.36, z: 1.211}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.012999296, y: 0, z: 0.5709999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 855573320}
-  m_RootOrder: 1
+  m_Father: {fileID: 1002086068}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1394566728
 GameObject:
@@ -3533,6 +3565,9 @@ MonoBehaviour:
   - {fileID: 1394566730}
   - {fileID: 2083202936}
   currentGun: 1
+  adsPoint: {fileID: 189996077}
+  gunHolder: {fileID: 1002086068}
+  adsSpeed: 5
 --- !u!95 &2115360896
 Animator:
   serializedVersion: 4
