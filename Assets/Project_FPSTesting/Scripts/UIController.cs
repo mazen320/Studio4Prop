@@ -8,7 +8,7 @@ public class UIController : MonoBehaviour
 {
     public static UIController instance;
     public Slider healthSlider;
-    public TextMeshProUGUI healthText;
+    public TextMeshProUGUI healthText, ammoText;
 
     private void Awake()
     {

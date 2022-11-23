@@ -36,6 +36,10 @@ public class PlayerController : MonoBehaviour
     {
         instance = this;
     }
+    private void Start()
+    {
+        UIController.instance.ammoText.text = "AMMO: " + activeGun.currentAmmo;
+    }
 
     void Update()
     {
@@ -145,6 +149,8 @@ public class PlayerController : MonoBehaviour
             Instantiate(activeGun.bullet, firePoint.position, firePoint.rotation);
 
             activeGun.fireCounter = activeGun.fireRate;
+
+            UIController.instance.ammoText.text = "AMMO: " + activeGun.currentAmmo;
         }
     }
 
