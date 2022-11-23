@@ -669,6 +669,7 @@ MonoBehaviour:
   fireCounter: 0
   currentAmmo: 10
   firePoint: {fileID: 1689709681}
+  zoomAmmount: 50
 --- !u!1 &281703944
 GameObject:
   m_ObjectHideFlags: 0
@@ -1561,6 +1562,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 855573320}
+  zoomSpeed: 5
+  thecam: {fileID: 963698418}
 --- !u!1 &1002086067
 GameObject:
   m_ObjectHideFlags: 0
@@ -2354,8 +2357,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1899135629}
   - {fileID: 1746993347}
+  - {fileID: 1899135629}
   m_Father: {fileID: 1002086068}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2377,6 +2380,7 @@ MonoBehaviour:
   fireCounter: 0
   currentAmmo: 120
   firePoint: {fileID: 1746993347}
+  zoomAmmount: 40
 --- !u!1 &1502543273
 GameObject:
   m_ObjectHideFlags: 0
@@ -2783,7 +2787,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1394566729}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1796227947
 GameObject:
@@ -3435,6 +3439,7 @@ MonoBehaviour:
   fireCounter: 0
   currentAmmo: 15
   firePoint: {fileID: 1858730624}
+  zoomAmmount: 20
 --- !u!1 &2115360891
 GameObject:
   m_ObjectHideFlags: 0

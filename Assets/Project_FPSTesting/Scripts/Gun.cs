@@ -17,6 +17,8 @@ public class Gun : MonoBehaviour
 
     public Transform firePoint;
 
+    public float zoomAmmount;
+
     // Start is called before the first frame update
     void Start()
     {
