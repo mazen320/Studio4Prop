@@ -38,6 +38,9 @@ public class PlayerController : MonoBehaviour
     private Vector3 gunstartPosition;
     public float adsSpeed;
 
+    private float bounceAmount;
+    private bool bounce;
+
     private void Awake()
     {
         instance = this;
@@ -84,6 +87,13 @@ public class PlayerController : MonoBehaviour
         {
             moveInput.y = jumpForce;
         }
+
+        if(bounce)
+        {
+            bounce = false;
+            moveInput.y = bounceAmount;
+        }
+
 
         charController.Move(moveInput * Time.deltaTime);
 
@@ -203,4 +213,9 @@ public class PlayerController : MonoBehaviour
         firePoint.position = activeGun.firePoint.position;
     }
 
+    public void Bounce(float bounceForce)
+    {
+        bounceAmount = bounceForce;
+        bounce = true;
+    }
 }
