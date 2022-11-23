@@ -31,6 +31,8 @@ public class PlayerController : MonoBehaviour
     public float maxViewAngle = 60f;
 
     public Gun activeGun;
+    public List<Gun> gunList = new List<Gun>();
+    public int currentGun;
 
     private void Awake()
     {
@@ -39,6 +41,9 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         UIController.instance.ammoText.text = "AMMO: " + activeGun.currentAmmo;
+
+        activeGun = gunList[currentGun];
+        activeGun.gameObject.SetActive(true);
     }
 
     void Update()
@@ -135,6 +140,11 @@ public class PlayerController : MonoBehaviour
                 FireBullet();
         }
 
+        if(Input.GetKeyDown(KeyCode.Tab))
+        {
+            SwitchGun();
+        }
+
         anim.SetFloat("moveSpeed", moveInput.magnitude);
         anim.SetBool("onGround", canJump);
     }
@@ -152,6 +162,22 @@ public class PlayerController : MonoBehaviour
 
             UIController.instance.ammoText.text = "AMMO: " + activeGun.currentAmmo;
         }
+    }
+
+    public void SwitchGun()
+    {
+        activeGun.gameObject.SetActive(false);
+        currentGun++;
+
+        if(currentGun >= gunList.Count)
+        {
+            currentGun = 0;
+        }
+
+        activeGun = gunList[currentGun];
+        activeGun.gameObject.SetActive(true);
+
+        UIController.instance.ammoText.text = "AMMO: " + activeGun.currentAmmo;
     }
 
 }

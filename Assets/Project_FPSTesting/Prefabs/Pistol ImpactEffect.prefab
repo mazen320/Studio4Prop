@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7949483788420044201}
   - component: {fileID: 7949483788420044200}
   m_Layer: 0
-  m_Name: ImpactEffect
+  m_Name: Pistol ImpactEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
