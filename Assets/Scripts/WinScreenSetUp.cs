@@ -5,7 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class WinScreenSetUp : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private void Start()
+    {
+        
+    Cursor.lockState = CursorLockMode.None;
+    }
     public void GoToMainMenu()
     {
         Time.timeScale = 1f;

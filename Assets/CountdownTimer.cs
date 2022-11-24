@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class CountdownTimer : MonoBehaviour
 {
@@ -16,12 +17,19 @@ public class CountdownTimer : MonoBehaviour
         {
             currentTime -= Time.deltaTime;
         }
-        else
+        else 
         {
             currentTime = 0;
         }
 
         TimeUI(currentTime);
+        
+        if(currentTime == 0)
+        {
+            SceneManager.LoadScene("UI.WinScreens-Demo");
+        }
+
+       
     }
 
     void TimeUI(float displayingTime)
