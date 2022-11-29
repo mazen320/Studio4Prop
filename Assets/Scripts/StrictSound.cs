@@ -19,8 +19,9 @@ public class StrictSound : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKey(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.T))
         {
+            Debug.Log("M");
             OptionalAudio.Play();
         }
     }
