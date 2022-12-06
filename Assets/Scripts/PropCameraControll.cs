@@ -13,8 +13,8 @@ public class PropCameraControll : MonoBehaviour
     {
         //hide and Lock cursor
         freeLook = false;
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+      //  Cursor.visible = false;
+       // Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()

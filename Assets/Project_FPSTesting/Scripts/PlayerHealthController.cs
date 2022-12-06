@@ -39,11 +39,15 @@ public class PlayerHealthController : MonoBehaviour
             if (currentHealth <= 0)
             {
                 gameObject.SetActive(false);
+
+                currentHealth = 0;
+
+                GameManager.instance.PlayerDied();
             }
 
             graceCounter = graceLength;
-            UIController.instance.healthSlider.value = currentHealth;
-            UIController.instance.healthText.text = "Health: " + currentHealth + "/" + maxHealth;
+            //UIController.instance.healthSlider.value = currentHealth;
+            //UIController.instance.healthText.text = "Health: " + currentHealth + "/" + maxHealth;
         }
     }
 }
