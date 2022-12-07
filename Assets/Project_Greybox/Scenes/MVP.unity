@@ -17986,6 +17986,7 @@ GameObject:
   - component: {fileID: 830146452}
   - component: {fileID: 830146451}
   - component: {fileID: 830146450}
+  - component: {fileID: 830146455}
   m_Layer: 7
   m_Name: floor
   m_TagString: Untagged
@@ -18017,7 +18018,7 @@ MeshCollider:
   m_GameObject: {fileID: 830146448}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -18262,6 +18263,19 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!65 &830146455
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830146448}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 80, y: 0, z: 40}
+  m_Center: {x: 0.70308304, y: 0.0001, z: 5.6131477}
 --- !u!1001 &845075955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23216,7 +23230,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh55990
+  m_Name: pb_Mesh47800
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -40393,6 +40407,24 @@ Transform:
   m_Father: {fileID: 292724359}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1706725054 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100004, guid: 2bc260af909ed5f4ab0f64d149f33964, type: 3}
+  m_PrefabInstance: {fileID: 19433505}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1706725055
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706725054}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.46656036, y: 2.1444023, z: 0.33743027}
+  m_Center: {x: -0.041015074, y: 0.5722034, z: 0.095228516}
 --- !u!1 &1709464058 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1999003943788674, guid: cf7d61e510a54d74ab872c01b879b723, type: 3}
@@ -41870,7 +41902,7 @@ MeshCollider:
   m_GameObject: {fileID: 1786768513}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
