@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Project_Greybox/Scenes/MVP.unity
     guid: 688ac91220fcfb546a0a1e2704a663b4
   - enabled: 1
+    path: Assets/Project_Greybox/Scenes/Living room.unity
+    guid: d466766bc6a86b648878e912c89cc184
+  - enabled: 1
     path: Assets/Project_UI.WinScreens/Scenes/UI.WinScreens-Demo.unity
     guid: 2043665c9609d364096364a9ebaf7769
   m_configObjects: {}
