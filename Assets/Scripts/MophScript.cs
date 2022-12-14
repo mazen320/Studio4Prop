@@ -9,7 +9,7 @@ public class MophScript : MonoBehaviour
     Camera cam;
     MeshRenderer renderer;
     MeshFilter filter;
-    MeshCollider collider;
+    public BoxCollider collider;
     public Transform modelTransform;
 
 
@@ -41,7 +41,8 @@ public class MophScript : MonoBehaviour
                 renderer.material = hitRend.material;
 
                 //copy and replace the collider
-                //MeshCollider hitCollider = hit.collider.gameObject.GetComponent<MeshCollider>();
+                BoxCollider hitCollider = hit.collider.gameObject.GetComponent<BoxCollider>();
+                collider.size= hitCollider.size;
                 //collider.sharedMesh = hitCollider.sharedMesh;
 
                 Transform trans = hit.transform.gameObject.GetComponent<Transform>();
