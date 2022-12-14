@@ -46,6 +46,7 @@ public class MophScript : MonoBehaviour
 
                 Transform trans = hit.transform.gameObject.GetComponent<Transform>();
                 modelTransform.localScale = trans.localScale;
+                modelTransform.localScale = modelTransform.localScale * 2f;
             }
         }
     }
