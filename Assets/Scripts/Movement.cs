@@ -4,43 +4,44 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float Speed, runSpeed, jumpStrength, groundCheckDistance;
-    Rigidbody rb;
-    bool grounded, floating;
-
-    void Start()
+    public float speed = 6;
+    public float jumpForce = 6;
+    private Rigidbody rig;
+    private Vector2 input;
+    private Vector3 movementVector;
+    private void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        floating = false;
+        rig = GetComponent<Rigidbody>();
+        //Need to freez rotation so the player do not flip over
+        rig.freezeRotation = true;
     }
-
-    void Update()
+    private void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-        Vector3 movement;
-
-        if (Physics.Raycast(transform.position, -transform.up, groundCheckDistance))
-            grounded = true;
-        else
-            grounded = false;
-
-        if (Input.GetKey(KeyCode.LeftShift))
-            movement = new Vector3(horizontal, 0f, vertical) * runSpeed * Time.deltaTime;
-        else
-            movement = new Vector3(horizontal, 0f, vertical) * Speed * Time.deltaTime;
-
-        if (Input.GetKeyDown(KeyCode.Space) && grounded)
-            rb.AddForce(new Vector3(0, jumpStrength, 0), ForceMode.Impulse);
-
-        if (!floating)
-            transform.Translate(movement, Space.Self);
-
-        if (Input.GetKeyDown(KeyCode.G))
+        //Cleanerway to get input
+        input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        if (Input.GetButtonDown("Jump") && IsGrounded())
         {
-            rb.useGravity = !rb.useGravity;
-            rb.velocity = Vector3.zero;
-            floating = !floating;
+            rig.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
+    }
+    private void FixedUpdate()
+    {
+        //Keep the movement vector aligned with the player rotation
+        movementVector = input.x * transform.right * speed + input.y * transform.forward * speed;
+        //Apply the movement vector to the rigidbody without effecting gravity
+        rig.velocity = new Vector3(movementVector.x, rig.velocity.y, movementVector.z);
+    }
+    private bool IsGrounded()
+    {
+        //Simple way to check for ground
+        if (Physics.Raycast(transform.position, Vector3.down, 1f))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }
+

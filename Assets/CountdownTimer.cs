@@ -26,7 +26,7 @@ public class CountdownTimer : MonoBehaviour
         
         if(currentTime == 0)
         {
-            SceneManager.LoadScene("UI.WinScreens-Demo");
+            SceneManager.LoadScene("UI.WinScreenProp");
         }
 
        
