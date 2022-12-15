@@ -44,7 +44,7 @@ public class MophScript : MonoBehaviour
                 BoxCollider hitCollider = hit.collider.gameObject.GetComponent<BoxCollider>();
                 BoxCollider hitColl = hit.collider.gameObject.GetComponent<BoxCollider>();
                // collider.center = hitColl.center;
-                collider.size= hitCollider.bounds.size * 1.25f;
+                collider.size= hitCollider.bounds.size;
                 //collider.sharedMesh = hitCollider.sharedMesh;
 
                 Transform trans = hit.transform.gameObject.GetComponent<Transform>();
