@@ -1,3 +1,6 @@
 Player time Log 
 
-Login date:12/20/2022 10:51:31 AM
+Login date:12/20/2022 3:12:33 PM
+Player time13.37273secs0mins0hours
+Login date:12/20/2022 3:13:20 PM
+Player time14.66801secs0mins0hours
