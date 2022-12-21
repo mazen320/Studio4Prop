@@ -11,8 +11,7 @@ public class PauseMenu : MonoBehaviour
     // public GameObject Cam;
     public GameObject SplitScreen;
 
-    public GameObject prop;
-    public GameObject hunter;
+   
 
     public bool isPaused;
     void Start()
