@@ -18,6 +18,7 @@ public class MainMenu : MonoBehaviour
 
     public void QuitGame()
     {
+        Metrics.CreateText(); 
         Application.Quit();
     }
 
