@@ -7700,7 +7700,6 @@ MonoBehaviour:
   rotSpeed: 1
   player: {fileID: 239665827}
   target: {fileID: 239665827}
-  smoothSpeed: 0
 --- !u!1 &149874626 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 852952228031600202, guid: 2ad995f64ac216c4a980599ec2385492, type: 3}
@@ -12980,9 +12979,10 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 64
-  detectRange: 5
-  morphKey: 102
-  morphSpeed: 1
+  detectRange: 3
+  morph: 102
+  collider: {fileID: 239665835}
+  modelTransform: {fileID: 1844972535}
 --- !u!4 &241832288 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4023347256705668, guid: f700d5369b49a864b9187fe6d3344d56, type: 3}
@@ -98631,7 +98631,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh29524
+  m_Name: pb_Mesh26184
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
