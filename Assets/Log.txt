@@ -1,0 +1,84 @@
+Player time Log 
+
+Login date:12/20/2022 3:12:33 PM
+Player time13.37273secs0mins0hours
+Login date:12/20/2022 3:13:20 PM
+Player time14.66801secs0mins0hours
+Login date:12/21/2022 11:48:03 AM
+Player time5.932391secs0mins0hours
+Login date:12/21/2022 11:48:56 AM
+Player time0.880197secs0mins0hours
+Login date:12/21/2022 11:51:35 AM
+Player time6.358478secs0mins0hours
+Login date:12/21/2022 11:52:05 AM
+Player time8.396346secs0mins0hours
+Login date:12/21/2022 11:52:23 AM
+Player time4.882425secs0mins0hours
+Login date:12/21/2022 11:52:35 AM
+Player time5.778002secs0mins0hours
+Login date:12/21/2022 11:52:50 AM
+Player time11.11989secs0mins0hours
+Login date:12/21/2022 11:55:19 AM
+Player time13.74395secs0mins0hours
+Login date:12/21/2022 11:55:48 AM
+Player time5.760793secs0mins0hours
+Login date:12/21/2022 11:55:59 AM
+Player time1.480147secs0mins0hours
+Login date:12/21/2022 12:02:39 PM
+Player time11.45437secs0mins0hours
+Login date:12/21/2022 12:02:51 PM
+Player time4.08749secs0mins0hours
+Login date:12/21/2022 12:05:49 PM
+Player time6.013825secs0mins0hours
+Login date:12/21/2022 12:07:14 PM
+Player time3.621895secs0mins0hours
+Login date:12/21/2022 12:07:47 PM
+Player time7.686077secs0mins0hours
+Login date:12/21/2022 12:08:03 PM
+Player time5.197805secs0mins0hours
+Login date:12/21/2022 12:08:15 PM
+Player time4.936863secs0mins0hours
+Login date:12/21/2022 12:08:18 PM
+Player time0.3733333secs0mins0hours
+Login date:12/21/2022 12:08:42 PM
+Player time15.04561secs0mins0hours
+Login date:12/21/2022 12:09:36 PM
+Player time24.4953secs0mins0hours
+Login date:12/21/2022 12:26:01 PM
+Player time44.32839secs0mins0hours
+Login date:12/21/2022 12:30:28 PM
+Player time49.58654secs0mins0hours
+Login date:12/21/2022 12:31:49 PM
+Player time17.52727secs1mins0hours
+Login date:12/21/2022 12:32:22 PM
+Player time19.99297secs0mins0hours
+Login date:12/21/2022 12:33:32 PM
+Player time2.724597secs1mins0hours
+Login date:12/21/2022 1:10:20 PM
+Player time23.33057secs0mins0hours
+Login date:12/25/2022 3:04:50 PM
+Player time9.054645secs0mins0hours
+Login date:12/25/2022 3:10:43 PM
+Player time0.436246secs0mins0hours
+Login date:12/25/2022 5:00:02 PM
+Player time13.91057secs0mins0hours
+Login date:12/25/2022 5:00:25 PM
+Player time13.37378secs0mins0hours
+Login date:12/25/2022 10:10:17 PM
+Player time7.726272secs0mins0hours
+Login date:12/25/2022 10:15:42 PM
+Player time4.299621secs0mins0hours
+Login date:12/25/2022 10:24:27 PM
+Player time2.249815secs0mins0hours
+Login date:12/25/2022 10:24:33 PM
+Player time2.28104secs0mins0hours
+Login date:12/25/2022 10:24:47 PM
+Player time1.222478secs0mins0hours
+Login date:12/25/2022 10:24:57 PM
+Player time3.841479secs0mins0hours
+Login date:12/25/2022 10:25:18 PM
+Player time5.14553secs0mins0hours
+Login date:12/26/2022 4:20:44 PM
+Player time2.686474secs0mins0hours
+Login date:12/26/2022 4:22:07 PM
+Player time0.3733333secs0mins0hours
